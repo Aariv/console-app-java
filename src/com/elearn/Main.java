@@ -49,12 +49,12 @@ public class Main {
                 System.out.println("Enter age: ");
                 customer.setAge(sc.nextInt());
 
-                customerService.addCustomer(customer);
+                customerService.add(customer);
                 break;
             case "2":
                 //ViewList view = new ViewList();
                 System.out.println("Customers");
-                customerService.findAllCustomers().forEach(customerFromDb -> {
+                customerService.findAll().forEach(customerFromDb -> {
                     System.out.println("Name: " + customerFromDb.getName());
                     System.out.println("Age: "+ customerFromDb.getAge());
                 });

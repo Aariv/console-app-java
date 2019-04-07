@@ -1,26 +1,16 @@
 package com.elearn.model;
 
 // Abstraction Data Hiding
-public class Customer {
-    private Integer id;
+public class Customer extends BaseEntity {
     private String name;
     private Integer age;
 
     public Customer() {
 
     }
-    public Customer(Integer id, String name, Integer age) {
-        this.id = id;
+    public Customer(String name, Integer age) {
         this.name = name;
         this.age = age;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {

@@ -14,31 +14,31 @@ public class CustomerServiceImpl implements CustomerService {
     private static final AtomicInteger count = new AtomicInteger(0);
 
     public CustomerServiceImpl() {
-        customers.add(new Customer(count.incrementAndGet(), "Pradeep", 8));
-        customers.add(new Customer(count.incrementAndGet(), "Saleem", 18));
-        customers.add(new Customer(count.incrementAndGet(), "Jayaraj", 28));
-    }
-
-    @Override
-    public void addCustomer(Customer customer) {
+        Customer customer = new Customer("Prad", 3);
+        customer.setId(count.incrementAndGet());
         customers.add(customer);
     }
 
     @Override
-    public Customer updateCustomer(Customer customer) {
+    public void add(Customer customer) {
+        customers.add(customer);
+    }
+
+    @Override
+    public Customer update(Customer customer) {
         int indexOf = customers.indexOf(customer);
         customers.set(indexOf, customer);
         return customer;
     }
 
     @Override
-    public void deleteCustomer(Integer id) {
-        Customer customer = getCustomer(id);
+    public void delete(Integer id) {
+        Customer customer = get(id);
         customers.remove(customer);
     }
 
     @Override
-    public Customer getCustomer(Integer id) {
+    public Customer get(Integer id) {
         for (Customer customer: customers) {
             if(customer.getId() == id) {
                 return customer;
@@ -48,7 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> findAllCustomers() {
+    public List<Customer> findAll() {
         return customers;
     }
 }
